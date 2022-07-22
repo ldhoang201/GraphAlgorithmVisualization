@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseMoved="#exitEvent" prefHeight="815.0" prefWidth="1200.0" style="-fx-background-radius: 5px; -fx-background-color: #222426;-fx-fill: transparent;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oop.controller.AppController">
+    <AnchorPane fx:id="main" layoutX="61.0" layoutY="44.0" maxHeight="744.0" maxWidth="1070.0" onMouseClicked="#addOrLink" onMouseMoved="#drawLine" prefHeight="739.0" prefWidth="1070.0" style="-fx-background-color: #FEF0EF; -fx-background-radius: 10px; -fx-cursor: hand;" />
+    <VBox fx:id="panel" layoutX="48.0" layoutY="601.0" prefHeight="186.0" prefWidth="100.0" style="-fx-cursor: hand; -fx-background-color: FE8381; -fx-background-radius: 10px;" visible="false">
+        <Button fx:id="newGraph" mnemonicParsing="false" onAction="#CreateGraph" prefHeight="37.0" prefWidth="100.0" style="-fx-background-radius: 10px; -fx-background-color: FE8381; -fx-cursor: hand;" text="Draw Graph" />
+        <Button mnemonicParsing="false" onAction="#showExample" prefHeight="37.0" prefWidth="100.0" style="-fx-background-radius: 10px; -fx-background-color: FE8381; -fx-cursor: hand;" text="Example Graph" />
+        <Button fx:id="dfs" mnemonicParsing="false" onAction="#showDfsBox" prefHeight="37.0" prefWidth="100.0" style="-fx-background-radius: 10px; -fx-background-color: FE8381; -fx-cursor: hand;" text="DFS" />
+        <Button fx:id="db" mnemonicParsing="false" onAction="#showDPBox" prefHeight="37.0" prefWidth="100.0" style="-fx-background-radius: 10px; -fx-background-color: FE8381; -fx-cursor: hand;" text="DP" />
+        <Button fx:id="djs" mnemonicParsing="false" onAction="#showDijBox" prefHeight="37.0" prefWidth="100.0" style="-fx-background-radius: 10px; -fx-background-color:  FE8381 ; -fx-cursor: hand;" text="Dijkstra" />
+
+    </VBox>
+    <TextFlow fx:id="status" layoutX="703.0" layoutY="561.0" prefHeight="51.0" prefWidth="478.0" style="-fx-background-color: #dddad6; -fx-background-radius: 10px;" visible="false" />
+    <TextFlow fx:id="codeTrace" layoutX="703.0" layoutY="622.0" prefHeight="166.0" prefWidth="478.0" style="-fx-background-color: #dddad6; -fx-background-radius: 10px;" visible="false" />
+    <Button fx:id="showPanel" layoutX="11.0" layoutY="602.0" mnemonicParsing="false" onAction="#showPanel" prefHeight="186.0" prefWidth="46.0" style="-fx-background-color: FE8381; -fx-cursor: hand;">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Button>
+    <Label fx:id="textOfShowPanel" layoutX="26.0" layoutY="676.0" style="-fx-cursor: hand;" text="&gt;">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
+    <Button fx:id="codeTraceButton" layoutX="1134.0" layoutY="622.0" mnemonicParsing="false" onAction="#showCodeTrace" prefHeight="165.0" prefWidth="52.0" style="-fx-background-color: D9513C; -fx-cursor: hand;">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Button>
+    <Button fx:id="statusButton" layoutX="1134.0" layoutY="561.0" mnemonicParsing="false" onAction="#showStatus" prefHeight="46.0" prefWidth="52.0" style="-fx-background-color: D65775; -fx-cursor: hand;">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Button>
+    <Label fx:id="textOfShowStatus" layoutX="1152.0" layoutY="569.0" style="-fx-cursor: hand;" text="&lt;">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
+    <Label fx:id="textOfShowCodeTrace" layoutX="1152.0" layoutY="687.0" style="-fx-cursor: hand;" text="&lt;">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
+   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="9.0" prefHeight="34.0" prefWidth="260.0" style="-fx-background-color: FED2D1; -fx-background-radius: 10px;" text="Graph Visualization" textFill="#000000ab">
+      <font>
+         <Font name="System Bold" size="23.0" />
+      </font>
+   </Label>
+   <Button fx:id="exitButton" layoutX="1164.0" layoutY="1.0" mnemonicParsing="false" onAction="#exit" onMouseMoved="#exitEvent" prefHeight="26.0" prefWidth="34.0" style="-fx-background-radius: 5px; -fx-background-color: #222426;" text="X" textAlignment="CENTER" textFill="WHITE" />
+   <TextFlow fx:id="message" layoutX="324.0" layoutY="7.0" prefHeight="40.0" prefWidth="578.0" />
+   <ToolBar fx:id="DFSBox" focusTraversable="false" layoutX="174.0" layoutY="673.0" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 10px; -fx-background-color: #000000;" visible="false">
+      <items>
+         <VBox prefHeight="20.0" prefWidth="42.0" style="-fx-background-radius: 10px;-fx-background-color: #808080;">
+            <children>
+               <TextArea fx:id="DFSGo" prefHeight="29.0" prefWidth="36.0">
+                  <font>
+                     <Font size="9.0" />
+                  </font>
+               </TextArea>
+            </children>
+         </VBox>
+         <Button mnemonicParsing="false" onAction="#executeDFS" style="-fx-background-color: FE8381;" text="Go" />
+      </items>
+   </ToolBar>
+   <ToolBar fx:id="DPBox" layoutX="174.0" layoutY="711.0" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 10px; -fx-background-color: #000000;" visible="false">
+      <items>
+         <VBox prefHeight="30.0" prefWidth="42.0" style="-fx-background-radius: 10px; -fx-background-color: #808080;">
+            <children>
+               <TextArea fx:id="DPGo" prefHeight="30.0" prefWidth="34.0">
+                  <font>
+                     <Font size="9.0" />
+                  </font>
+               </TextArea>
+            </children>
+         </VBox>
+         <Button mnemonicParsing="false" onAction="#executeDP" style="-fx-background-color: FE8381;" text="Go" />
+      </items>
+   </ToolBar>
+   <ToolBar fx:id="djsBox" layoutX="173.0" layoutY="749.0" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 10px; -fx-background-color: #000000;" visible="false">
+      <items>
+         <VBox prefHeight="14.0" prefWidth="42.0" style="-fx-background-radius: 10px; -fx-background-color: #808080;">
+            <children>
+               <TextArea fx:id="djsGo" prefHeight="32.0" prefWidth="42.0">
+                  <font>
+                     <Font size="9.0" />
+                  </font>
+               </TextArea>
+            </children>
+         </VBox>
+         <Button mnemonicParsing="false" onAction="#executeDijkstra" style="-fx-background-color: FE8381;" text="Go" />
+      </items>
+   </ToolBar>
+   <Button fx:id="clearButton" layoutX="174.0" layoutY="603.0" mnemonicParsing="false" onAction="#clearAction" style="-fx-background-radius: 10; -fx-background-color: FE8381" text="Clear" visible="false" />
+   <Slider fx:id="sliderSpeed" layoutX="332.0" layoutY="793.0" max="1.5" min="0.5" onMouseClicked="#setSpeed" onMouseMoved="#moveSpeed" value="1.0" />
+   <Label fx:id="messageSpeed" layoutX="296.0" layoutY="791.0" style="-fx-text-fill: white; -fx-text-alignment: center" text="x1.0" />
+   <Button fx:id="pauseButton" layoutX="531.0" layoutY="788.0" mnemonicParsing="false" onAction="#pauseAction" prefHeight="26.0" prefWidth="59.0" style="-fx-background-color: #222426;" text="Pause" textFill="WHITE" />
+   <Button id="next" layoutX="587.0" layoutY="787.0" mnemonicParsing="false" onAction="#nextAction" prefHeight="26.0" prefWidth="25.0" style="-fx-background-color: #222426;" text="&gt;" textAlignment="CENTER" textFill="WHITE" />
+   <Button id="back" layoutX="506.0" layoutY="787.0" mnemonicParsing="false" onAction="#backAction" prefHeight="26.0" prefWidth="25.0" style="-fx-background-color: #222426;" text="&lt;" textAlignment="CENTER" textFill="WHITE" />
+</AnchorPane>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="327.0" prefWidth="514.0" style="-fx-background-color: FE8381;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oop.controller.MenuController">
+   <children>
+      <ProgressBar fx:id="process" layoutX="101.0" layoutY="138.0" prefHeight="34.0" prefWidth="306.0" progress="0.0" />
+      <Label fx:id="text" layoutX="186.0" layoutY="87.0" prefHeight="35.0" prefWidth="180.0" text="MY GRAPH">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="202.0" layoutY="213.0" prefHeight="18.0" prefWidth="126.0" text="Design by our team" textFill="#00000096">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
